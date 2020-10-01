@@ -12,5 +12,6 @@ import java.util.List;
  * @author Jimmy
  */
 public interface Proveedor {
+    //no se recibe nada y retorna un entero
    Integer obtener();
 }
