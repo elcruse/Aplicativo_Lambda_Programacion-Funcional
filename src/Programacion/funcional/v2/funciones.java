@@ -2,12 +2,14 @@
 package Programacion.funcional.v2;
 
 import Programacion.funcional.v2.Clases.AlCuadrado;
-import Programacion.funcional.v2.Clases.Aleatorio;
 import Programacion.funcional.v2.Clases.Impresor;
 import Programacion.funcional.v2.Clases.SoloPares;
 import Programacion.funcional.v2.Clases.Sumador;
 import Programacion.funcional.v2.Clases.Superfunciones;
+import Programacion.funcional.v2.Interfaces.Proveedor;
 import java.util.List;
+import java.util.Random;
+
 
 /**
  *
@@ -18,7 +20,14 @@ public class funciones {
     public static void main(String[] args) {
         // Usando la programacion funcional en java
         //1.-Crear lista de enteros con programacion funcional
-        List<Integer> numeros=Superfunciones.proveer(10,new Aleatorio());
+        List<Integer> numeros=Superfunciones.proveer(10,new Proveedor() {//aca usamos la clase anonima de manera inline
+            //usamos la interface Proveedor directamente en vez de crear la clase y todo ese paso.
+            Random random=new Random();
+            @Override
+            public Integer obtener() {
+                return random.nextInt(100);
+            }
+        });
         System.out.println("Esta es la lista creada de forma aleatoria con funciones: "+numeros);
         //2.-Quedarme solo con los pares
         List<Integer>filtrados= Superfunciones.filtrar(numeros,new SoloPares());
@@ -36,12 +45,6 @@ public class funciones {
         System.out.println("Suma de cuadrados: "+total);
     }
 
-    
-   
-
-
-
-    
-    
+        
 }
 

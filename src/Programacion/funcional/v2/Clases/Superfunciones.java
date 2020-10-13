@@ -26,7 +26,10 @@ public class Superfunciones {
     
     return resultado;
     }
-    
+    //me pide un entero y la interface 
+    // con el entero inicializo el tamaño del array
+    //lo recorro y guardo en otro array"resultado" la interface de enteros que a su vez es usada
+    // por la clase aleatorio.
     public static List<Integer> proveer(int size, Proveedor proveedor){
         List<Integer> resultado=new ArrayList<>();
         for (int i = 0; i <size; i++) {
@@ -54,7 +57,8 @@ public class Superfunciones {
         }
         return valores;
     }
-    
+    //super funcion recibe una lista de numeros enteros, y una interface la interface solo recibe numeros enteros
+    //recorre la lista y pasa los valores a la interfaz
     public static void consumir (List<Integer> valores,Consumidor consumir){
         for (Integer valor : valores) {
            consumir.aceptar(valor); 
